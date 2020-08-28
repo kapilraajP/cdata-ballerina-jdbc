@@ -43,7 +43,7 @@ public function main() {
         description: "Test account desc."
     };
 
-    // Create Salesforce Account
+    // Create a new Salesforce Account
     var ret = cdataSalesforceDB->update("INSERT INTO Account (Name, Type, AccountNumber, Industry, Description) VALUES " +
                           "(?, ?, ?, ?, ?)", 
                           sampleAccount.name, 
@@ -59,6 +59,7 @@ public function main() {
         io:println("Insert failed: ", <string>ret.detail()?.message);
     }
 
+    // Retrieving an existing Salesforce Account
     selectRet = cdataSalesforceDB->select("SELECT Id, Name, Type, AccountNumber, Industry, Description FROM Account WHERE Id = ?",
                                     SalesforceAccount, sampleAccount.id.toString());
     if (selectRet is table<record{}>) {
