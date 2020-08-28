@@ -20,8 +20,6 @@ type SalesforceAccount record {
 public function main() {
 
     // Get Salesforce Accounts table. 
-    // var selectRet = cdataSalesforceDB->select("SELECT Id, Name, Type, AccountNumber, Industry, Description FROM Account",
-    //                                 SalesforceAccount);
     var selectRet = cdataSalesforceDB->select("SELECT Id, Name, Type, AccountNumber, Industry, Description FROM Account " 
                                                 + "WHERE Id IS NOT NULL",
                                     SalesforceAccount);
